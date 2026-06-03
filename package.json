@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch:tsc": "tsc --watch",
-    "dev": "concurrently \"tsc --watch\" \"nodemon ./dist/server.js\"",
+    "dev": "node init && concurrently \"tsc --watch\" \"nodemon ./dist/server.js\"",
     "schema": "cd ./src/database/schemas && cat *.prisma > ../schema.prisma && npx prisma format && npx prisma generate && npx prisma migrate deploy",
     "schema:dev": "cd ./src/database/schemas && cat *.prisma > ../schema.prisma && npx prisma format && npx prisma migrate dev --name init",
     "tsoa": "tsoa spec-and-routes",
