@@ -6,11 +6,11 @@
   "scripts": {
     "tsc": "tsc",
     "watch:tsc": "tsc --watch",
-    "dev": "concurrently \"tsc --watch\" \"nodemon ./dist/server.js\"",
+    "dev": "node init && concurrently \"tsc --watch\" \"nodemon ./dist/server.js\"",
     "schema": "cd ./src/database/schemas && cat *.prisma > ../schema.prisma && npx prisma format && npx prisma generate && npx prisma migrate deploy",
     "schema:dev": "cd ./src/database/schemas && cat *.prisma > ../schema.prisma && npx prisma format && npx prisma migrate dev --name init",
     "tsoa": "tsoa spec-and-routes",
-    "dev:tsoa": "concurrently \"tsc --watch\" \"onchange ./dist/**/*.controller.js -- tsoa spec-and-routes\" \"nodemon ./dist/server.js\"",
+    "dev:tsoa": "node init && concurrently \"tsc --watch\" \"onchange ./dist/**/*.controller.js -- tsoa spec-and-routes\" \"nodemon ./dist/server.js\"",
     "test": "npx jest src/tests",
     "test:coverage": "npx jest src/tests --coverage",
     "lint": "eslint src/**/*.ts",
